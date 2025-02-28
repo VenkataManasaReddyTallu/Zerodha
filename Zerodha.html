@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zerodha Clone</title>
+    <style>
+        /* Reset CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 50px;
+            height: 90vh;
+        }
+
+        .hero-text {
+            width: 50%;
+        }
+
+        .hero-text h1 {
+            font-size: 50px;
+            color: #2c3e50;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .hero img {
+            width: 500px;
+            height: auto;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background-color: #387ed1;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* Features Section */
+        .features {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            color: #2c3e50;
+        }
+
+        .feature-box {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .box {
+            width: 300px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fbfbfb;
+            padding: 30px 0 5px 0;
+            border-top: 1px solid #eee;
+        }
+        .pricing-link {
+            margin-top: 0;
+            padding-left: 10px;
+       }
+    .row {
+        box-sizing: border-box;
+        display: flex;
+        flex: 0 1 auto;
+        flex-flow: row wrap;
+    } 
+    .between {
+        justify-content: space-between;
+    }
+    .three {
+    flex-basis: 22%;
+    width: 22%
+    }
+.columns,.column {
+    box-sizing: border-box;
+    flex: 0 1 auto
+}
+.icon-ok-circled:before {
+    content: ""
+}
+.icon-instagram:before {
+    content: "";
+}
+.icon-linkedin:before {
+    content: "";
+}
+.icon-telegram:before {
+    content: "";
+}
+
+.icon-eye:before {
+    content: ""
+}
+
+.icon-eye-off:before {
+    content: ""
+}
+
+.icon-th:before {
+    content: ""
+}
+
+.icon-arrow-right:before {
+    content: ""
+}
+
+.icon-phone:before {
+    content: ""
+}
+
+.icon-trash-empty:before {
+    content: ""
+}
+
+.icon-info-circled-alt:before {
+    content: ""
+}
+
+.icon-twitter:before {
+    content: ""
+}
+
+.icon-menu:before {
+    content: ""
+}
+
+.icon-linkedin:before {
+    content: ""
+}
+
+.icon-angle-up:before {
+    content: ""
+}
+
+.icon-angle-down:before {
+    content: ""
+}
+
+.icon-instagram:before {
+    content: ""
+}
+
+.icon-facebook-official:before {
+    content: ""
+}
+
+.icon-telegram:before {
+    content: ""
+}
+[class^=icon-]:before, [class*=" icon-"]:before {
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+}
+footer {
+    background-color: #fbfbfb;
+    padding: 30px 0 5px 0;
+    border-top: 1px solid #eee
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+footer .contactnumber {
+    font-size: 1.25rem;
+    color: #424242;
+    margin-bottom: 10px
+}
+
+footer .social {
+    padding: 0;
+    margin-top: 15px
+}
+
+footer .social:last-child {
+    margin-top: 8px
+}
+
+footer .social li {
+    display: inline-block;
+    margin-right: 13px
+}
+
+footer .social a {
+    font-size: 1.25rem;
+    color: #9b9b9b;
+    line-height: 1
+}
+
+footer .social a:hover {
+    color: #387ed1
+}
+
+footer .social a img {
+    height: 18px;
+    width: 18px;
+    position: relative;
+    top: 3px
+}
+
+footer .social a img.youtube-logo {
+    width: 26px;
+    height: 26px;
+    top: 7px
+}
+
+footer .footer-logo {
+    padding: 10px 0
+}
+
+footer .footer-logo img {
+    max-height: 20px;
+    width: auto
+}
+
+footer .main-footer li {
+    line-height: 2
+}
+
+footer .main-footer li a {
+    color: #666
+}
+
+footer .main-footer li a:hover {
+    color: #387ed1
+}
+
+footer .main-footer .nav-head {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-bottom: 10px
+}
+
+footer .smallprint {
+    color: #9b9b9b;
+    margin-top: 40px
+}
+
+footer .smallprint p {
+    font-size: .65rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    width: 100%
+}
+
+footer .smallprint p:last-child {
+    margin-bottom: 0
+}
+
+footer .footer-graveyard-links ul li {
+    display: inline;
+    font-size: .8rem;
+    margin-right: 20px
+}
+
+footer .footer-graveyard-links ul li a {
+    color: #9b9b9b;
+    line-height: 4;
+    font-size: .75rem
+}
+
+footer .footer-graveyard-links ul li a:hover {
+    color: #387ed1
+}
+
+footer .copyright {
+    margin: 0;
+    font-size: .8rem
+}
+
+@media only screen and (max-width: 1100px) {
+    footer .container {
+        padding:0 20px
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .main-footer .column,.main-footer .columns {
+        margin-bottom:40px
+    }
+
+    .main-footer .column:last-child,.main-footer .columns:last-child {
+        margin-bottom: 0
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">
+            <img src="https://zerodha.com/static/images/logo.svg" alt="Zerodha">
+        </div>
+        <div class="nav-links">
+            <a href="https://zerodha.com/open-account/">Signup</a>
+            <a href="https://zerodha.com/products/">Products</a>
+            <a href="https://zerodha.com/charges/#tab-equities">Pricing</a>
+            <a href="https://support.zerodha.com/">Support</a>
+        </div>
+    </div>
+    <img src="https://zerodha.com/static/images/landing.png" alt="Zerodha" width="780px" height="328px" style="display: block; margin: 0 auto;margin-top:1cap">
+    <h1 style="text-align:center;font-size:45px;margin-top: 2cap ;">Invest in everything</h1>
+    <p style="text-align:center;font-size:20px">
+        Online platform to invest in stocks, derivatives, mutual funds, ETFs, bonds, and more.
+    </p>
+    <div style="text-align: center;margin-top:20px;"><a href="https://signup.zerodha.com/" class="btn">Sign up for free</a></div>
+   
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="hero-text">
+            <h1 style="font-size:30px;">Trust with Confidence</h1>
+            <h3 style="margin-top:30px;">Customer-first always</h3>
+            <p>That's why 1.5+ crore customers trust Zerodha with ₹4.5+ lakh crores of equity investments and contribute to 15% of daily retail exchange volumes in India.</p>
+            <h3 style="margin-top:10px;">No spam or gimmicks</h3>
+            <p>No gimmicks, spam, "gamification", or annoying push notifications. High quality apps that you use at your pace, the way you like.</p>
+            <h3 style="margin-top:10px;">The Zerodha universe</h3>
+            <p>Not just an app, but a whole ecosystem. Our investments in 30+ fintech startups offer you tailored services specific to your needs.</p>
+            <h3 style="margin-top:10px;">Do better with money</h3>
+            <p>With initiatives like Nudge and Kill Switch, we don't just facilitate transactions, but actively help you do better with your money.</p>
+        </div>
+        <img src="https://zerodha.com/static/images/ecosystem.png" alt="Zerodha Ecosystem"style="margin-left:50px;width:600px;">
+    </div>
+        <div style="text-align: center;margin-top:2cap">
+            <a href="https://zerodha.com/media">
+                <img src="https://zerodha.com/static/images/press-logos.png" alt="Press Logos">
+            </a>
+        </div>
+        <div class="hero">
+            <div class="hero-text">
+                <h1 style="font-size:30px">Unbeatable pricing</h1>
+                <p>We pioneered the concept of discount broking and price transparency in India. Flat fees and no hidden charges.</p>
+                <a href="https://zerodha.com/charges/#tab-equities">See pricing <i class="icon-arrow-right"></i></a>
+            </div>
+            <!-- <img src="https://zerodha.com/static/images/pricing-eq.svg" alt=""style="margin-left:0px;width:180px;"><p>Free equity delivery<br>and direct mutual funds</p> -->
+            <div class="pricing-box">
+                <img src="https://zerodha.com/static/images/pricing-eq.svg" alt=""style="width:100px">
+                <p>Free account<br>opening</p>
+              </div>
+              <div class="pricing-box">
+                <img src="https://zerodha.com/static/images/pricing-eq.svg" alt=""style="width:100px"></br>
+                <p>Free equity delivery<br>and direct mutual funds</p>
+              </div>
+              <div class="pricing-box">
+                <img src="https://zerodha.com/static/images/other-trades.svg" alt=""style="width:100px">
+                <p>Intraday and<br>F&amp;O</p>
+              </div>
+    </div>
+    <div class="hero">
+        <img src="https://zerodha.com/static/images/index-education.svg" alt="Zerodha Ecosystem"style="margin-left:50px;width:400px;">
+        <div class="hero-text">
+            <h1 style="font-size:30px;margin-top: 0px;">Free and open market education</h1>
+            <p>Varsity, the largest online stock market education book in the world covering everything from the basics to advanced trading.</p>
+            <a href="https://zerodha.com/varsity/">Varsity <i class="icon-arrow-right"></i></a>
+            <p>TradingQ&A, the most active trading and investment community in India for all your market related queries.</p>
+            <a href="https://tradingqna.com/">Trading Q&A <i class="icon-arrow-right"></i></a>
+        </div>
+    </div>
+    <h1 style="text-align:center">Open a Zero account</h1>
+    <p style="text-align:center;margin-top: 20px;;">Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and F&O trades.</p>
+    <div style="text-align: center;margin-top:20px;"><a href="https://signup.zerodha.com/" class="btn">Sign up for free</a></div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2025 Zerodha Clone. All rights reserved.</p>
+    </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row between main-footer">
+                <div class="columns three">
+                    <div class="footer-logo">
+                        <img src="https://zerodha.com/static/images/logo.svg" alt="">
+                    </div>
+    
+                    <!-- <h5 class="contactnumber"><i class="icon-phone"></i>+91 80 4718 1888</h5> -->
+                    <p class="copyright text-grey">© 2010 - 2025, Zerodha Broking Ltd.</p>
+                    <p class="copyright text-grey">All rights reserved.</p>
+                    <ul class="social">
+                        <li>
+                            <a target="_blank" href="https://twitter.com/zerodhaonline">
+                                <img src="https://zerodha.com/static/images/x-twitter.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://facebook.com/zerodha.social"><i class="icon-facebook-official"></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://instagram.com/zerodhaonline/"><i class="icon-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://linkedin.com/company/zerodha">
+                                <i class="icon-linkedin"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <ul class="social">
+                        <li>
+                            <a target="_blank" href="https://www.youtube.com/@zerodhaonline">
+                                <img class="youtube-logo" src="https://zerodha.com/static/images/youtube.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://whatsapp.com/channel/0029Va8tzF0EquiIIb9j791g">
+                                <img class="whatsapp-logo" src="https://zerodha.com/static/images/whatsapp-logo.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://t.me/zerodhain">
+                                <i class="icon-telegram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="columns three">
+                    <ul class="list-style">
+                        <li class="nav-head">Company</li>
+                        <li><a href="https://zerodha.com/about/">About</a></li>
+                        <li><a href="https://zerodha.com/products/">Products</a></li>
+                        <li><a href="https://zerodha.com/pricing/">Pricing</a></li>
+                        <li>
+                        <a href="https://zerodha.com/refer/">Referral programme</a>
+                        </li>
+                        <li><a href="https://careers.zerodha.com">Careers</a></li>
+                        <li><a href="https://zerodha.tech">Zerodha.tech</a></li>
+                        <li><a href="https://zerodha.com/open-source/">Open source</a></li>
+                        <li><a href="https://zerodha.com/media/">Press &amp; media</a></li>
+                        <li><a href="https://zerodha.com/cares/">Zerodha Cares (CSR)</a></li>
+                    </ul>
+                </div>
+                <div class="columns three">
+                    <ul class="list-style">
+                        <li class="nav-head">Support</li>
+                        <li><a href="https://zerodha.com/contact/">Contact us</a></li>
+                        <li>
+                            <a href="https://support.zerodha.com">Support portal</a>
+                        </li>
+                        <li><a href="https://zerodha.com/z-connect/">Z-Connect blog</a></li>
+                        <li><a href="https://zerodha.com/charges/">List of charges</a></li>
+                        <li>
+                            <a href="https://zerodha.com/resources/">Downloads &amp; resources</a>
+                        </li>
+                        <li>
+                            <a href="https://zerodha.com/videos">Videos</a>
+                        </li>
+                        <li>
+                            <a href="https://stocks.zerodha.com">Market overview</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://support.zerodha.com/category/your-zerodha-account/your-profile/ticket-creation/articles/how-do-i-create-a-ticket-at-zerodha">How to file a complaint?</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="https://support.zerodha.com/category/your-zerodha-account/your-profile/ticket-creation/articles/track-complaints-or-tickets">Status of your complaints</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="columns three">
+                    <ul class="list-style">
+                        <li class="nav-head">Account</li>
+                        <li>
+                            <a href="https://zerodha.com/open-account/">Open an account</a>
+                        </li>
+                        <li>
+                            <a href="https://zerodha.com/fund-transfer/">Fund transfer</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row smallprint">
+                <p>
+                Zerodha Broking Ltd.: Member of NSE, BSE&ZeroWidthSpace; &amp;&ZeroWidthSpace; MCX – SEBI
+                Registration no.: INZ000031633 CDSL/NSDL: Depository services through Zerodha Broking Ltd. – SEBI Registration no.: IN-DP-431-2019
+                Commodity Trading through Zerodha Commodities Pvt. Ltd. MCX: 46025; NSE-50001
+                – SEBI Registration no.: INZ000038238 Registered Address: Zerodha
+                Broking Ltd., #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public
+                School, J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For
+                any complaints pertaining to securities broking please write to
+                <a href="mailto:complaints@zerodha.com">complaints@zerodha.com</a>, for
+                DP related to <a href="mailto:dp@zerodha.com">dp@zerodha.com</a>. Please
+                ensure you carefully read the Risk Disclosure Document as prescribed by
+                SEBI | ICF
+                </p>
+                <p>
+                Procedure to file a complaint on <a href="https://scores.sebi.gov.in/" target="_blank">SEBI SCORES</a>:
+                Register on SCORES portal. Mandatory details for filing complaints on SCORES: Name, PAN, Address, Mobile Number,
+                E-mail ID.
+                Benefits: Effective Communication, Speedy redressal of the grievances
+                </p>
+                <p>
+                    <a href="https://smartodr.in/" target="_blank">Smart Online Dispute Resolution</a> | <a href="https://zerodha-common.s3.ap-south-1.amazonaws.com/Downloads-and-resources/Smart%20ODR%20info.pdf" target="_blank">Grievances Redressal Mechanism</a>
+                </p>
+                <p>
+                Investments in securities market are subject to market risks; read all the related documents carefully before investing.
+                </p>
+                <p>
+                Attention investors: 1) Stock brokers can accept securities as margins from clients only by way of pledge in the depository system w.e.f September 01, 2020. 2) Update your e-mail and phone number with your stock broker / depository participant and receive OTP directly from depository on your e-mail and/or mobile number to create pledge. 3) Check your securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.
+                </p>
+                <p>
+                "Prevent unauthorised transactions in your account. Update your mobile
+                numbers/email IDs with your stock brokers. Receive information of your
+                transactions directly from Exchange on your mobile/email at the end of
+                the day. Issued in the interest of investors. KYC is one time exercise
+                while dealing in securities markets - once KYC is done through a SEBI
+                registered intermediary (broker, DP, Mutual Fund etc.), you need not
+                undergo the same process again when you approach another intermediary."
+                Dear Investor, if you are subscribing to an IPO, there is no need to
+                issue a cheque. Please write the Bank account number and sign the IPO
+                application form to authorize your bank to make payment in case of
+                allotment. In case of non allotment the funds will remain in your bank
+                account. As a business we don't give stock tips, and have not authorized
+                anyone to trade on behalf of others. If you find anyone claiming to be
+                part of Zerodha and offering such services, please
+                <a href="https://support.zerodha.com/category/your-zerodha-account/your-profile/articles/how-do-i-place-a-complaint-at-zerodha">create
+                    a ticket here</a>.
+                </p>
+            </div>
+            <div class="footer-graveyard-links text-center">
+                <ul>
+                    <li>
+                        <a href="https://nseindia.com">NSE</a>
+                    </li>
+                    <li>
+                        <a href="https://www.bseindia.com/">BSE</a>
+                    </li>
+                    <li>
+                        <a href="https://www.mcxindia.com/">MCX</a>
+                    </li>
+                    <li>
+                        <a href="https://zerodha.com/terms-and-conditions/">Terms &amp; conditions</a>
+                    </li>
+                    <li>
+                        <a href="https://zerodha.com/policies-and-procedures/">Policies &amp; procedures</a>
+                    </li>
+                    <li>
+                        <a href="https://zerodha.com/privacy-policy/">Privacy policy</a>
+                    </li>
+                    <li>
+                        <a href="https://zerodha.com/disclosure/">Disclosure</a>
+                    </li>
+                    <li>
+                        <a href="https://zerodha.com/investor-attention/">For investor's attention</a>
+                    </li>
+                    <li>
+                        <a href="https://zerodha.com/tos/investor-charter/">Investor charter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
